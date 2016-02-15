@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    >
+
+
+    <Spinner
+        android:id="@+id/spnLocation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:prompt="@string/spinner_title"
+        android:layout_alignParentTop="true"
+        />
+
+
+    <Button
+        android:id="@+id/bGo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/go"
+        android:gravity="center"
+        />
+
+</RelativeLayout>

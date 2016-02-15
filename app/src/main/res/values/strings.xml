@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Precise</string>
+    <string name="Home">Home</string>
+    <string name="Products">Products</string>
+    <string name="About_us">About Us</string>
+    <string name="main">Main</string>
+    <string name="go">Go</string>
+    <string name="spinner_title">Location</string>
+
+
+</resources>
