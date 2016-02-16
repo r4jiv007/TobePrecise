@@ -4,9 +4,6 @@
     <!-- Single menu item 
          Set id, icon and Title for each menu item
     -->
-    <item android:id="@+id/menu_products"
-        android:title="Products"
-        app:showAsAction="never"/>
 
     <item android:id="@+id/menu_aboutus"
         android:title="AboutUs"
@@ -15,6 +12,5 @@
     <item android:id="@+id/menu_exit"
         android:title="Exit"
         app:showAsAction="never"/>
-
 
 </menu>

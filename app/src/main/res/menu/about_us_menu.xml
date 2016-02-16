@@ -8,10 +8,6 @@
         android:title="Products"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/menu_aboutus"
-        android:title="AboutUs"
-        app:showAsAction="never"/>
-
     <item android:id="@+id/menu_exit"
         android:title="Exit"
         app:showAsAction="never"/>

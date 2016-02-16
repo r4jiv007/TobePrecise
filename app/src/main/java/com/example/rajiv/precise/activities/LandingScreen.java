@@ -1,6 +1,6 @@
 package com.example.rajiv.precise.activities;
 
-import android.content.Context;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -25,13 +25,12 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * Created by rajiv on 15/2/16.
  */
-public class LandingScreen extends FragmentActivity implements View.OnClickListener {
+public class LandingScreen extends BaseActivity implements View.OnClickListener {
 
 //    ArrayList<String> mLocations = new ArrayList<>();
     private Spinner spnLocation;
@@ -40,6 +39,7 @@ public class LandingScreen extends FragmentActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle(R.string.Home);
 
         setContentView(R.layout.home_screen_layout);
         initView();
@@ -127,9 +127,45 @@ public class LandingScreen extends FragmentActivity implements View.OnClickListe
     }
 
     private  void showMainScreen(){
-        Constants.mSelectedLocation=spnLocation.getSelectedItem().toString();
-        Intent intent = new Intent(this,MainScreen.class);
+        if(spnLocation.getSelectedItem()!=null) {
+            Constants.mSelectedLocation = spnLocation.getSelectedItem().toString();
+            Intent intent = new Intent(this, MainScreen.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this,"Config file is not loaded ",Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.landing_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_exit:
+                exitApp();
+                return true;
+            case R.id.menu_aboutus:
+                showAboutUs();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    private void showAboutUs(){
+        Intent intent = new Intent(this,AboutUsScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+
     }
 
 }

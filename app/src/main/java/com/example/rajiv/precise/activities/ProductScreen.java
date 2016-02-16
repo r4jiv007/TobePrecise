@@ -23,7 +23,7 @@ import java.util.ArrayList;
 /**
  * Created by rajiv on 15/2/16.
  */
-public class ProductScreen extends FragmentActivity {
+public class ProductScreen extends BaseActivity {
 
     private ListView lvProducts;
     private TextView tvLocation;
@@ -97,7 +97,7 @@ public class ProductScreen extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.product_menu, menu);
         return true;
     }
 
@@ -109,8 +109,8 @@ public class ProductScreen extends FragmentActivity {
                 // ProjectsActivity is my 'home' activity
                 startActivityAfterCleanup(MainScreen.class);
                 return true;
-            case R.id.menu_products:
-                showProductScreen();
+            case R.id.menu_exit:
+                exitApp();
                 return true;
             case R.id.menu_aboutus:
                 showAboutUs();
@@ -123,18 +123,15 @@ public class ProductScreen extends FragmentActivity {
     private void showProductScreen(){
         Intent intent = new Intent(this,ProductScreen.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         startActivity(intent);
     }
 
     private void showAboutUs(){
         Intent intent = new Intent(this,AboutUsScreen.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         startActivity(intent);
 
     }
-
 
     private void startActivityAfterCleanup(Class<?> cls) {
         Intent intent = new Intent(getApplicationContext(), cls);

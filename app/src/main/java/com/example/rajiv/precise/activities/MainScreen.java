@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 /**
  * Created by rajiv on 15/2/16.
  */
-public class MainScreen extends FragmentActivity {
+public class MainScreen extends BaseActivity {
 
     private TextView tvWelcome,tvLocation;
     @Override
@@ -53,6 +53,9 @@ public class MainScreen extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            case R.id.menu_exit:
+                exitApp();
+                return true;
             case R.id.menu_products:
                 showProductScreen();
                 return true;
@@ -66,11 +69,13 @@ public class MainScreen extends FragmentActivity {
 
     private void showProductScreen(){
         Intent intent = new Intent(this,ProductScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
     private void showAboutUs(){
         Intent intent = new Intent(this,AboutUsScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
     }

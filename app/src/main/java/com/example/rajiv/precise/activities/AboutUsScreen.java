@@ -15,7 +15,7 @@ import com.example.rajiv.precise.R;
 /**
  * Created by rajiv on 15/2/16.
  */
-public class AboutUsScreen extends FragmentActivity {
+public class AboutUsScreen extends BaseActivity {
 
 
     private WebView mWebView;
@@ -58,7 +58,7 @@ public class AboutUsScreen extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.about_us_menu, menu);
         return true;
     }
 
@@ -73,8 +73,8 @@ public class AboutUsScreen extends FragmentActivity {
             case R.id.menu_products:
                 showProductScreen();
                 return true;
-            case R.id.menu_aboutus:
-                showAboutUs();
+            case R.id.menu_exit:
+                exitApp();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
